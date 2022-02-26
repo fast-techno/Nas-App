@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "144172166315",
+    "project_id": "nas-application-5a8f6",
+    "storage_bucket": "nas-application-5a8f6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:144172166315:android:ad2c7f720c338b04a91bee",
+        "android_client_info": {
+          "package_name": "com.example.nas_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "144172166315-7rg5aqo4kqvs1bnvibs9re9kdop6iufb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.nas_app",
+            "certificate_hash": "9d828091036ad82eec542adddc2ce0fa74850dc2"
+          }
+        },
+        {
+          "client_id": "144172166315-nhaec0ev5tvqsum3h64nclmbke1b1ftp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBgtGu9Ys2kLUf1y3iytAfV2AOfJYLAuWs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "144172166315-nhaec0ev5tvqsum3h64nclmbke1b1ftp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
