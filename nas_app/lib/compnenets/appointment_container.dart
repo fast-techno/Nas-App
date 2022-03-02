@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:nas_app/Model/appointment_model.dart';
 import 'package:nas_app/utils/app_colors.dart';
 
+// ignore: must_be_immutable
 class AppointmentContainer extends StatelessWidget {
   AppointmentContainer(
       {Key? key, required this.appointment, required this.padding})

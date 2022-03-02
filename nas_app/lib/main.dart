@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:nas_app/screens/interview_date.dart';
 import 'package:nas_app/screens/splash_screen.dart';
 import 'package:nas_app/utils/Translations/localization.dart';
 import 'package:nas_app/utils/app_colors.dart';
@@ -28,7 +27,7 @@ class MyApp extends StatelessWidget {
       fallbackLocale: const Locale('ar', 'AE'),
       builder: EasyLoading.init(),
       debugShowCheckedModeBanner: false,
-      home: InterviewDate(),
+      home: const SplashPage(),
     );
   }
 

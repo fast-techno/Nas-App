@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:nas_app/Model/appointment_model.dart';
-import 'package:nas_app/Model/select_available_date_model.dart';
 import 'package:nas_app/compnenets/custome_radio_button.dart';
 import 'package:nas_app/compnenets/primary_button.dart';
 import 'package:nas_app/controllers/home_controller.dart';
@@ -17,19 +16,16 @@ class ChangeDateDialog extends StatefulWidget {
 }
 
 class _ChangeDateDialogState extends State<ChangeDateDialog> {
-
-
   Color titleColor = AppColors.primaryColor;
 
-  bool _selectInterview(List<Appointment> app){
-    for( var element in app){
+  bool _selectInterview(List<Appointment> app) {
+    for (var element in app) {
       if (element.isSelected == true) {
         return true;
       }
     }
     return false;
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +47,7 @@ class _ChangeDateDialogState extends State<ChangeDateDialog> {
                 GestureDetector(
                   onTap: () {
                     Navigator.of(context).pop();
-                    for( var element in controller.changeAppointments){
+                    for (var element in controller.changeAppointments) {
                       element.isSelected = false;
                     }
                   },
@@ -89,11 +85,12 @@ class _ChangeDateDialogState extends State<ChangeDateDialog> {
                               hoverColor: Colors.transparent,
                               onTap: () {
                                 setState(() {
-                                  for (var element in controller.changeAppointments) {
+                                  for (var element
+                                      in controller.changeAppointments) {
                                     element.isSelected = false;
                                   }
-                                  controller.changeAppointments[index].isSelected =
-                                      true;
+                                  controller.changeAppointments[index]
+                                      .isSelected = true;
                                 });
                               },
                               child: CustomRadioItem(
@@ -115,83 +112,94 @@ class _ChangeDateDialogState extends State<ChangeDateDialog> {
                 const SizedBox(height: 20),
                 Padding(
                   padding: const EdgeInsets.only(left: 15.0, right: 15.0),
-                  child: controller.changeAppointments.isNotEmpty ? Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      GetBuilder<HomeController>(
-                          init: HomeController(),
-                          builder: (homeController) {
-                          return GestureDetector(
-                            onTap: ()  {
-                              if(_selectInterview(controller.changeAppointments)){
-                                setState(() {
-                                  titleColor = AppColors.primaryColor;
-                                });
+                  child: controller.changeAppointments.isNotEmpty
+                      ? Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            GetBuilder<HomeController>(
+                                init: HomeController(),
+                                builder: (homeController) {
+                                  return GestureDetector(
+                                    onTap: () {
+                                      if (_selectInterview(
+                                          controller.changeAppointments)) {
+                                        setState(() {
+                                          titleColor = AppColors.primaryColor;
+                                        });
+                                        Navigator.pop(context);
+                                        homeController.onInit();
+                                        for (var element
+                                            in controller.changeAppointments) {
+                                          element.isSelected = false;
+                                        }
+                                      } else {
+                                        setState(() {
+                                          titleColor = Colors.red;
+                                        });
+                                      }
+                                    },
+                                    child: PrimaryButton(
+                                      title: "تأكيد وأرسال",
+                                      textColor: AppColors.secondaryColor,
+                                      textSize: 14,
+                                      fillColor: _selectInterview(
+                                              controller.changeAppointments)
+                                          ? AppColors.primaryColor
+                                          : Colors.grey.shade600,
+                                      borderColor: _selectInterview(
+                                              controller.changeAppointments)
+                                          ? AppColors.primaryColor
+                                          : Colors.grey.shade600,
+                                      height: 31.15,
+                                      width: 86.86,
+                                    ),
+                                  );
+                                }),
+                            GestureDetector(
+                              onTap: () {
                                 Navigator.pop(context);
-                                homeController.onInit();
-                                for( var element in controller.changeAppointments){
+                                Navigator.pushReplacement(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (BuildContext context) =>
+                                            const HomePage()));
+                                for (var element
+                                    in controller.changeAppointments) {
                                   element.isSelected = false;
                                 }
-                              } else {
-                                setState(() {
-                                  titleColor = Colors.red;
-                                });
+                              },
+                              child: PrimaryButton(
+                                title: "إلغاء",
+                                textColor: AppColors.secondaryColor,
+                                textSize: 14,
+                                fillColor: AppColors.primaryColor,
+                                borderColor: AppColors.primaryColor,
+                                height: 31.15,
+                                width: 88.86,
+                              ),
+                            ),
+                          ],
+                        )
+                      : Center(
+                          child: GestureDetector(
+                            onTap: () {
+                              Navigator.of(context).pop();
+                              for (var element
+                                  in controller.changeAppointments) {
+                                element.isSelected = false;
                               }
                             },
                             child: PrimaryButton(
-                              title: "تأكيد وأرسال",
+                              title: "إلغاء",
                               textColor: AppColors.secondaryColor,
                               textSize: 14,
-                              fillColor: _selectInterview(controller.changeAppointments) ? AppColors.primaryColor : Colors.grey.shade600,
-                              borderColor: _selectInterview(controller.changeAppointments) ? AppColors.primaryColor : Colors.grey.shade600,
+                              fillColor: AppColors.primaryColor,
+                              borderColor: AppColors.primaryColor,
                               height: 31.15,
-                              width: 86.86,
+                              width: 88.86,
                             ),
-                          );
-                        }
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.pop(context);
-                          Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (BuildContext context) =>
-                                  const HomePage()));
-                          for( var element in controller.changeAppointments){
-                            element.isSelected = false;
-                          }
-                        },
-                        child: PrimaryButton(
-                          title: "إلغاء",
-                          textColor: AppColors.secondaryColor,
-                          textSize: 14,
-                          fillColor: AppColors.primaryColor,
-                          borderColor: AppColors.primaryColor,
-                          height: 31.15,
-                          width: 88.86,
+                          ),
                         ),
-                      ),
-                    ],
-                  ) :Center(
-                    child: GestureDetector(
-                      onTap: () {
-                        Navigator.of(context).pop();
-                        for( var element in controller.changeAppointments){
-                          element.isSelected = false;
-                        }
-                      },
-                      child: PrimaryButton(
-                        title: "إلغاء",
-                        textColor: AppColors.secondaryColor,
-                        textSize: 14,
-                        fillColor: AppColors.primaryColor,
-                        borderColor: AppColors.primaryColor,
-                        height: 31.15,
-                        width: 88.86,
-                      ),
-                    ),
-                  ),
                 ),
               ],
             ),

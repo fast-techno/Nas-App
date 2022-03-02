@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class CustomCheckBox extends StatelessWidget {
   CustomCheckBox({Key? key, required this.fillColor}) : super(key: key);
 

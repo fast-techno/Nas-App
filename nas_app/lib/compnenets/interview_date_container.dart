@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:nas_app/Model/appointment_model.dart';
 import 'package:nas_app/utils/app_colors.dart';
 import 'package:flutter_html/flutter_html.dart';
-import 'package:flutter_html/style.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+// ignore: must_be_immutable
 class InterViewDateContainer extends StatelessWidget {
   InterViewDateContainer(
       {Key? key, required this.appointment, required this.padding})

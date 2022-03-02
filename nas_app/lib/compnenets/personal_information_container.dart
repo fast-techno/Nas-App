@@ -11,6 +11,7 @@ import 'dart:async';
 import 'package:dropdown_search/dropdown_search.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
+// ignore: must_be_immutable
 class PersonalInformationContainer extends StatefulWidget {
   PersonalInformationContainer(
       {Key? key,
@@ -956,7 +957,7 @@ class _PersonalInformationContainerState
                                                                     BorderSide
                                                                         .none),
                                                       ),
-                                                          showSearchBox: false,
+                                                      showSearchBox: false,
                                                       popupItemBuilder:
                                                           _customPopupItemBuilderExample,
                                                       searchFieldProps:
@@ -1094,7 +1095,7 @@ class _PersonalInformationContainerState
                                                                     BorderSide
                                                                         .none),
                                                       ),
-                                                          showSearchBox: false,
+                                                      showSearchBox: false,
                                                       popupItemBuilder:
                                                           _customPopupItemBuilderExample,
                                                       searchFieldProps:
@@ -2057,7 +2058,8 @@ class _PersonalInformationContainerState
                                                             newValue ?? "";
                                                       });
                                                     },
-                                                    dropDownButton:const  Visibility(
+                                                    dropDownButton:
+                                                        const Visibility(
                                                       visible: false,
                                                       child: Icon(
                                                         Icons.savings_sharp,

@@ -5,7 +5,8 @@ import 'package:nas_app/utils/app_colors.dart';
 class CustomRadioItem extends StatelessWidget {
   final Appointment _appointment;
 
-  CustomRadioItem(this._appointment);
+  // ignore: prefer_const_constructors_in_immutables
+  CustomRadioItem(this._appointment, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

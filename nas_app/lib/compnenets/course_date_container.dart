@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nas_app/utils/app_colors.dart';
 
+// ignore: must_be_immutable
 class CourseDateContainer extends StatelessWidget {
   CourseDateContainer({Key? key, required this.padding}) : super(key: key);
 
