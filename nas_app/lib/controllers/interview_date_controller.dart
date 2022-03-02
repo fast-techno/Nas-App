@@ -13,6 +13,7 @@ class InterviewDateController extends GetxController {
     super.onInit();
     fetchAppointments();
     fetchTermsAgree();
+    print(termsAgree);
   }
 
   fetchAppointments() async {

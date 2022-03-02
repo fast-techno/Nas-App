@@ -505,12 +505,15 @@ class _WorkInformationContainerState extends State<WorkInformationContainer> {
                                                       const SizedBox(
                                                         width: 10,
                                                       ),
-                                                      Text(
-                                                        controller
-                                                            .jobs[index].name!,
-                                                        style: Theme.of(context)
-                                                            .textTheme
-                                                            .headline6,
+                                                      Flexible(
+                                                        child: Text(
+                                                          controller
+                                                              .jobs[index].name!,
+                                                          overflow: TextOverflow.ellipsis,
+                                                          style: Theme.of(context)
+                                                              .textTheme
+                                                              .headline6,
+                                                        ),
                                                       ),
                                                       const SizedBox(
                                                         width: 2,
